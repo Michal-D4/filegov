@@ -1,0 +1,8 @@
+.vscode
+__pycache__/
+*.sqlite
+ui_*.py
+*_rc.py
+# setup.pcl used to pickle settings
+*.pcl
+tmp/

@@ -1,4 +1,4 @@
-# controller/edit_tree_model.py
+# edit_tree_model.py
 
 import copy
 
@@ -35,7 +35,7 @@ class EditTreeItem(object):
         if position < 0 or position + count > len(self.children):
             return False
 
-        for row in range(count):
+        for _ in range(count):
             print('  ', self.children[position].userData)
             self.children.pop(position)
         print('  childCount', self.childCount(), len(self.children))
@@ -369,7 +369,7 @@ class EditTreeModel(QAbstractItemModel):
 
         count = stream.readInt()
         fav_id = 0
-        for i in range(count):
+        for _ in range(count):
             file_id = stream.readInt()
             # dir_id = stream.readInt() # may be restored, if copy/move from real folder
             fav_id = stream.readInt()
@@ -390,7 +390,7 @@ class EditTreeModel(QAbstractItemModel):
         drop_data = mime_data.data(mime_format)
         stream = QDataStream(drop_data, QIODevice.ReadOnly)
         idx_count = stream.readInt()
-        for i in range(idx_count):
+        for _ in range(idx_count):
             tmp_str = stream.readQString()
             id_list = (int(i) for i in tmp_str.split(','))
             index = self._restore_index(id_list)

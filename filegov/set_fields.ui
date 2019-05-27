@@ -135,7 +135,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="res/res2.qrc"/>
+  <include location="res2.qrc"/>
  </resources>
  <connections>
   <connection>

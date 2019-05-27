@@ -1,6 +1,6 @@
-# controller/table_model.py
+# table_model.py
 
-from collections import Iterable
+from collections.abc import Iterable
 
 # from PyQt5.QtCore import QModelIndex, Qt, QAbstractTableModel, QSortFilterProxyModel
 from PyQt5.QtCore import (QAbstractTableModel, QModelIndex, Qt, QMimeData, QByteArray,

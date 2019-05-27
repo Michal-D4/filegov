@@ -1,4 +1,4 @@
-# model/helper.py
+# helper.py
 import os
 from collections import namedtuple
 from PyQt5.QtGui import QFontDatabase

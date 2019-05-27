@@ -1,4 +1,4 @@
-# view/sel_opt.py
+# sel_opt.py
 
 from collections import namedtuple
 

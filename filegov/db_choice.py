@@ -1,4 +1,4 @@
-# view/my_db_choice.py
+# my_db_choice.py
 
 from PyQt5.QtCore import pyqtSignal, QSettings, QVariant, QCoreApplication, Qt
 from PyQt5.QtWidgets import QDialog, QFileDialog, QListWidgetItem

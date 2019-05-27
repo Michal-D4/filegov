@@ -1,4 +1,4 @@
-# filegov/gov_files.py
+# gov_files.py
 
 import os
 import re

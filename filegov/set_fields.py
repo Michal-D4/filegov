@@ -1,4 +1,4 @@
-# view.set_fields.py
+# set_fields.py
 
 from PyQt5.QtCore import Qt, QModelIndex
 from PyQt5.QtWidgets import QDialog

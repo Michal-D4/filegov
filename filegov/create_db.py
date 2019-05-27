@@ -1,4 +1,4 @@
-# model/create_db.py
+# create_db.py
 
 import sqlite3
 

@@ -1,4 +1,4 @@
-# model/file_info.py
+# file_info.py
 
 import os
 from collections import namedtuple

@@ -1,6 +1,7 @@
 # helper.py
 import os
 from collections import namedtuple
+
 from PyQt5.QtGui import QFontDatabase
 
 # Shared things

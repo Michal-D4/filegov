@@ -27,7 +27,7 @@ def main():
     pyqtRemoveInputHook()
 
     app = QApplication(sys.argv)
-    dlg = DBChoice()
+    DBChoice()
     main_window = AppWindow()
 
     _controller = FilesCrt()

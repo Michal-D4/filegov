@@ -1,15 +1,16 @@
 # edit_tree_model.py
 
 import copy
+from collections import namedtuple, defaultdict
 
 from PyQt5.QtCore import (QAbstractItemModel, QModelIndex, Qt, QMimeData, QByteArray,
                           QDataStream, QIODevice, QPersistentModelIndex)
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import QFont
+
 from helper import (real_folder, virtual_folder,
-                          MimeTypes, DropCopyFolder, DropMoveFolder,
-                          DropCopyFile, DropMoveFile, Shared)
-from collections import namedtuple, defaultdict
+                            MimeTypes, DropCopyFolder, DropMoveFolder,
+                            DropCopyFile, DropMoveFile, Shared)
 
 DirData = namedtuple('DirData', 'dir_id parent_id is_virtual path')
 ALL_ITEMS = defaultdict(list)

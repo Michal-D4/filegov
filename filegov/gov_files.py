@@ -18,12 +18,13 @@ from edit_tree_model import EditTreeModel, EditTreeItem
 from file_info import FileInfo, LoadFiles
 from helper import (EXT_ID_INCREMENT, Fields, Shared, show_message)
 from utilities import DBUtils
-import create_db
+import create_db as create_db
 from load_db_data import LoadDBData
 from input_date import DateInputDialog
 from item_edit import ItemEdit
 from sel_opt import SelOpt
 from set_fields import SetFields
+
 
 DETECT_TYPES = sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES
 FileData = namedtuple('FileData', 'file_id dir_id comment_id ext_id source')

@@ -316,8 +316,7 @@ class FilesCrt():
         settings = QSettings()
         self.fields = Fields._make(settings.value('FIELDS',
                                                   (['FileName', 'FileDate', 'Pages', 'Size'],
-                                                   ['File', 'Date',
-                                                       'Pages', 'Size'],
+                                                   ['File', 'Date', 'Pages', 'Size'],
                                                    [0, 1, 2, 3])))
         self._set_file_model()
         self._resize_columns()

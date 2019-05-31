@@ -7,3 +7,4 @@ ui_*.py
 # setup.pcl used to pickle settings
 *.pcl
 tmp/
+poetry.lock

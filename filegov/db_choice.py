@@ -79,9 +79,9 @@ class DBChoice(QDialog):
         options = QFileDialog.Options(QFileDialog.HideNameFilterDetails |
                                       QFileDialog.DontConfirmOverwrite)
         file_name, _ = QFileDialog.getSaveFileName(self, "Create DB", "",
-                                                  options=options)
+                                                   options=options)
         if file_name:
-            if (len(self.init_data[2])) == 0 or (file_name not in self.init_data[2]):
+            if (self.init_data[2]) or (file_name not in self.init_data[2]):
                 print('--> new_db', file_name)
                 self.create_db(file_name)
                 self.DB_connect_signal.emit(file_name, True, False)
@@ -90,7 +90,7 @@ class DBChoice(QDialog):
                 self.ui_db_choice.listOfBDs.setCurrentRow(self.init_data[2].index(file_name))
 
     def create_new_db(self, file_name):
-        if not (file_name in self.init_data[2]):
+        if not file_name in self.init_data[2]:
             self.create_db(file_name)
         else:
             self.ui_db_choice.listOfBDs.setCurrentRow(self.init_data[2].index(file_name))
@@ -171,5 +171,3 @@ if __name__ == "__main__":
     if myapp.exec_() == QDialog.Accepted:
         print('name of DB file =', myapp.get_file_name())
     sys.exit(app.exec_())
-
-

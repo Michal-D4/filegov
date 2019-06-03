@@ -44,7 +44,6 @@ class LoadDBData:
         :param data: - iterable lines of file names with full path
         :return: None
         """
-        breakpoint()
         files = LoadDBData._yield_files(path_, ext_)
         for line in files:
             path = os.path.dirname(line)

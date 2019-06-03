@@ -170,7 +170,6 @@ class DBUtils:
 
     def advanced_selection(self, param):
         # print('|---> advanced_selection', param)
-        breakpoint()
         sql = self.generate_adv_sql(param)
         # print(sql)
 

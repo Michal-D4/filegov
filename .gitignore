@@ -8,3 +8,5 @@ ui_*.py
 *.pcl
 tmp/
 poetry.lock
+ws_filegov.code-workspace
+filegov.egg-info/

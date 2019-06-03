@@ -42,7 +42,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normalon>:/image/Favourites.png</normalon>
+          <normalon>:/image/res/Favourites.png</normalon>
          </iconset>
         </property>
         <property name="iconSize">
@@ -69,7 +69,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normalon>:/image/Update.png</normalon>
+          <normalon>:/image/res/Update.png</normalon>
          </iconset>
         </property>
         <property name="iconSize">
@@ -96,7 +96,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normalon>:/image/Filter.png</normalon>
+          <normalon>:/image/res/Filter.png</normalon>
          </iconset>
         </property>
         <property name="iconSize">
@@ -143,7 +143,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normalon>:/image/menu.png</normalon>
+          <normalon>:/image/res/menu.png</normalon>
          </iconset>
         </property>
         <property name="iconSize">
@@ -330,9 +330,9 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpenDB">
    <property name="icon">
-    <iconset>
-     <normalon>:/image/Database.png</normalon>
-    </iconset>
+    <iconset resource="res2.qrc">
+     <normaloff>:/image/res/Database.png</normaloff>
+     <normalon>:/image/Database.png</normalon>:/image/res/Database.png</iconset>
    </property>
    <property name="text">
     <string>OpenDB</string>
@@ -346,9 +346,9 @@
   </action>
   <action name="actionScanFiles">
    <property name="icon">
-    <iconset>
-     <normalon>:/image/Update.png</normalon>
-    </iconset>
+    <iconset resource="res2.qrc">
+     <normaloff>:/image/res/Update.png</normaloff>
+     <normalon>:/image/Update.png</normalon>:/image/res/Update.png</iconset>
    </property>
    <property name="text">
     <string>ScanFiles</string>
@@ -359,9 +359,9 @@
   </action>
   <action name="actionFileFilter">
    <property name="icon">
-    <iconset>
-     <normalon>:/image/Filter.png</normalon>
-    </iconset>
+    <iconset resource="res2.qrc">
+     <normaloff>:/image/res/Filter.png</normaloff>
+     <normalon>:/image/Filter.png</normalon>:/image/res/Filter.png</iconset>
    </property>
    <property name="text">
     <string>File filter</string>
@@ -372,9 +372,9 @@
   </action>
   <action name="actionFavorites">
    <property name="icon">
-    <iconset>
-     <normalon>:/image/Favourites.png</normalon>
-    </iconset>
+    <iconset resource="res2.qrc">
+     <normaloff>:/image/res/Favourites.png</normaloff>
+     <normalon>:/image/Favourites.png</normalon>:/image/res/Favourites.png</iconset>
    </property>
    <property name="text">
     <string>Favorites</string>

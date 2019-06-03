@@ -93,7 +93,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normalon>:/image/right.png</normalon>
+     <normalon>:/image/res/right.png</normalon>
     </iconset>
    </property>
    <property name="iconSize">
@@ -120,7 +120,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normalon>:/image/left.png</normalon>
+     <normalon>:/image/res/left.png</normalon>
     </iconset>
    </property>
    <property name="iconSize">

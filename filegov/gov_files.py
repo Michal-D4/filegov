@@ -18,7 +18,7 @@ from edit_tree_model import EditTreeModel, EditTreeItem
 from file_info import FileInfo, LoadFiles
 from helper import (EXT_ID_INCREMENT, Fields, Shared, show_message)
 from utilities import DBUtils
-import create_db as create_db
+import create_db
 from load_db_data import LoadDBData
 from input_date import DateInputDialog
 from item_edit import ItemEdit
@@ -314,10 +314,16 @@ class FilesCrt():
 
     def _restore_fields(self):
         settings = QSettings()
-        self.fields = Fields._make(settings.value('FIELDS',
-                                                  (['FileName', 'FileDate', 'Pages', 'Size'],
-                                                   ['File', 'Date', 'Pages', 'Size'],
-                                                   [0, 1, 2, 3])))
+        try:
+            self.fields = Fields._make(
+                settings.value('FIELDS',
+                               (['FileName', 'FileDate', 'Pages', 'Size'],
+                                ['File', 'Date', 'Pages', 'Size'],
+                                [0, 1, 2, 3])))
+        except TypeError:
+            self.fields = Fields._make((['FileName', 'FileDate', 'Pages', 'Size'],
+                                        ['File', 'Date', 'Pages', 'Size'],
+                                        [0, 1, 2, 3]))            
         self._set_file_model()
         self._resize_columns()
 

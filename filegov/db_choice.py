@@ -83,7 +83,7 @@ class DBChoice(QDialog):
         if file_name:
             if (self.init_data[2]) or (file_name not in self.init_data[2]):
                 print('--> new_db', file_name)
-                self.create_db(file_name)
+                self.create_db_(file_name)
                 self.DB_connect_signal.emit(file_name, True, False)
                 super(DBChoice, self).accept()
             else:
@@ -91,13 +91,13 @@ class DBChoice(QDialog):
 
     def create_new_db(self, file_name):
         if not file_name in self.init_data[2]:
-            self.create_db(file_name)
+            self.create_db_(file_name)
         else:
             self.ui_db_choice.listOfBDs.setCurrentRow(self.init_data[2].index(file_name))
 
         self.init_data[0] = self.ui_db_choice.skipThisWindow.checkState()
 
-    def create_db(self, file_name):
+    def create_db_(self, file_name):
         self.init_data[2].append(file_name)
         item = QListWidgetItem(file_name)
         self.ui_db_choice.listOfBDs.addItem(item)

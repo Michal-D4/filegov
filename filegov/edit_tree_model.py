@@ -8,9 +8,9 @@ from PyQt5.QtCore import (QAbstractItemModel, QModelIndex, Qt, QMimeData, QByteA
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import QFont
 
-from helper import (real_folder, virtual_folder,
-                            MimeTypes, DropCopyFolder, DropMoveFolder,
-                            DropCopyFile, DropMoveFile, Shared)
+from .helper import (real_folder, virtual_folder,
+                     MimeTypes, DropCopyFolder, DropMoveFolder,
+                     DropCopyFile, DropMoveFile, Shared)
 
 DirData = namedtuple('DirData', 'dir_id parent_id is_virtual path')
 ALL_ITEMS = defaultdict(list)

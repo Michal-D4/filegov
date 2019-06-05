@@ -3,8 +3,8 @@
 from PyQt5.QtCore import pyqtSignal, QSettings, QVariant, QCoreApplication, Qt
 from PyQt5.QtWidgets import QDialog, QFileDialog, QListWidgetItem
 
-from ui_db_choice import Ui_ChoiceDB
-from helper import Shared
+from .ui_db_choice import Ui_ChoiceDB
+from .helper import Shared
 
 
 SKIP_OPEN_DIALOG = 2

@@ -5,8 +5,8 @@ from collections import namedtuple
 from PyQt5.QtCore import Qt, QSettings
 from PyQt5.QtWidgets import QDialog
 
-from helper import EXT_ID_INCREMENT, DropCopyFile
-from ui_sel_opt import Ui_SelOpt
+from .helper import EXT_ID_INCREMENT, DropCopyFile
+from .ui_sel_opt import Ui_SelOpt
 
 
 class SelOpt(QDialog):

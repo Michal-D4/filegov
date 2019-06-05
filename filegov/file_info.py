@@ -8,8 +8,8 @@ import re
 from PyPDF2 import PdfFileReader, utils
 from PyQt5.QtCore import pyqtSignal, QObject, pyqtSlot
 
-from helper import Shared, get_file_extension
-from load_db_data import LoadDBData
+from .helper import Shared, get_file_extension
+from .load_db_data import LoadDBData
 
 AUTHOR_ID = 'select AuthorID from Authors where Author = ?;'
 

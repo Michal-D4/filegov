@@ -4,9 +4,9 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from gov_files import FilesCrt
-from main_window import AppWindow
-from db_choice import DBChoice
+from .gov_files import FilesCrt
+from .main_window import AppWindow
+from .db_choice import DBChoice
 
 sys._excepthook = sys.excepthook
 

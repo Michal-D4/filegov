@@ -3,7 +3,7 @@
 import sqlite3
 import datetime
 
-from helper import EXT_ID_INCREMENT, Shared
+from .helper import EXT_ID_INCREMENT, Shared
 
 
 Selects = {'TREE':  # (Dir name, DirID, ParentID, Full path of dir)

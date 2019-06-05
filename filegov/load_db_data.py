@@ -2,7 +2,7 @@
 
 import os
 
-from helper import Shared, get_file_extension, get_parent_dir
+from .helper import Shared, get_file_extension, get_parent_dir
 
 FIND_PART_PATH = 'select ParentID from Dirs where Path like :newPath;'
 

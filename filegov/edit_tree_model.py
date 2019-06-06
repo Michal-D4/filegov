@@ -420,9 +420,9 @@ class EditTreeModel(QAbstractItemModel):
 
         parent_id = self.data(parent, role=Qt.UserRole).dir_id
         item_id = self.data(index, role=Qt.UserRole).dir_id
-        Shared['DB utility'].insert_other('VIRTUAL_DIR', 
-                                            (parent_id, 
-                                            item_id))
+        Shared['DB utility'].insert_other('VIRTUAL_DIR',
+                                          (parent_id, 
+                                           item_id))
 
     def _restore_index(self, path):
         parent = QModelIndex()

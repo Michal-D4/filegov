@@ -624,11 +624,6 @@ class FilesCrt():
 
                 model.delete_row(f_idx)
 
-    # not used now ???
-    def _is_virtual_dir(self):
-        cur_idx = self.ui.dirTree.currentIndex()
-        return self.ui.dirTree.model().is_virtual(cur_idx)
-
     @staticmethod
     def _persistent_row_indexes(view):
         indexes = view.selectionModel().selectedRows()

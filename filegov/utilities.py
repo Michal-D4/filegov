@@ -7,24 +7,24 @@ from .helper import EXT_ID_INCREMENT, Shared
 
 
 Selects = {'TREE':  # (Dir name, DirID, ParentID, Full path of dir)
-               (' '.join(('WITH x(Path, DirID, ParentID, isVirtual, level) AS',
-                          '(SELECT Path, DirID, ParentID, isVirtual, 0 as level',)),
+               (' '.join(('WITH x(Path, DirID, ParentID, FolderType, level) AS',
+                          '(SELECT Path, DirID, ParentID, FolderType, 0 as level',)),
                 'FROM Dirs WHERE DirID = {}',
                 'FROM Dirs WHERE ParentID = {}',
-                ' '.join(('UNION ALL SELECT t.Path, t.DirID, t.ParentID, t.isVirtual,',
+                ' '.join(('UNION ALL SELECT t.Path, t.DirID, t.ParentID, t.FolderType,',
                           'x.level + 1 as lvl FROM x INNER JOIN Dirs AS t',
                           'ON t.ParentID = x.DirID')),
                 'and lvl <= {}) SELECT * FROM x order by level desc, Path;',
                 ') SELECT * FROM x order by level desc, Path;',
                 ),
 
-           'VIRT_DIRS': ' '.join(('select d.Path, d.DirID, v.ParentID, d.isVirtual from Dirs d', 
+           'VIRT_DIRS': ' '.join(('select d.Path, d.DirID, v.ParentID, d.FolderType from Dirs d', 
                                   'inner join VirtDirs v on d.DirID = v.DirID;')),
            'DIR_IDS':
-               ('WITH x(DirID, ParentID, isVirtual, level) AS (SELECT DirID, ParentID, isVirtual, 0 as level',
+               ('WITH x(DirID, ParentID, FolderType, level) AS (SELECT DirID, ParentID, FolderType, 0 as level',
                 'FROM Dirs WHERE DirID = {}',
                 'FROM Dirs WHERE ParentID = {}',
-                ' '.join(('UNION ALL SELECT t.DirID, t.ParentID, t.isVirtual,',
+                ' '.join(('UNION ALL SELECT t.DirID, t.ParentID, t.FolderType,',
                           'x.level + 1 as lvl FROM x INNER JOIN Dirs AS t',
                           'ON t.ParentID = x.DirID')),
                 'and lvl <= {}) SELECT DirID FROM x order by DirID;',
@@ -82,7 +82,7 @@ Selects = {'TREE':  # (Dir name, DirID, ParentID, Full path of dir)
                                   'Commented, FileID, DirID, coalesce(CommentID, 0), ExtID',
                                   'from Files where FileID in (select FileID from FilesVirt where',
                                   'DirID = ?);')),
-           'FAV_ID': 'select DirID from Dirs where isVirtual = 1',
+           'FAV_ID': 'select DirID from Dirs where FolderType = 1',
            'ISSUE_DATE': 'select IssueDate from Files where FileID = ?;',
            'EXIST_IN_VIRT_DIRS': 'select * from VirtDirs where DirID = ? and ParentID = ?;'
            }
@@ -105,7 +105,7 @@ Insert = {'VIRTUAL_FILE': 'insert into FilesVirt (DirID, FileID) values (?, ?);'
                                  'ExtID, FileName, CommentID, FileDate, Pages,',
                                  'Size, IssueDate, Opened, Commented FROM Files',
                                  'where FileID = {};')),
-          'DIR': 'insert into Dirs (Path, ParentID, isVirtual) values (?, ?, ?);',
+          'DIR': 'insert into Dirs (Path, ParentID, FolderType) values (?, ?, ?);',
           'VIRTUAL_DIR': 'insert into VirtDirs (ParentID, DirID) values (?, ?);',
           }
 
@@ -147,9 +147,9 @@ Delete = {'EXT': 'delete from Extensions where ExtID = ?;',
           'TAG_FILE': 'delete from FileTag where TagID=:tag_id and FileID=:file_id;',
           'TAG_FILE_BY_FILE': 'delete from FileTag where FileID = ?;',
           'TAG': 'delete from Tags where TagID=:tag_id;',
-          'EMPTY_DIRS': ' '.join(('delete from Dirs where isVirtual = 0 and NOT EXISTS',
+          'EMPTY_DIRS': ' '.join(('delete from Dirs where FolderType = 0 and NOT EXISTS',
                                   '(select * from Files where DirID = Dirs.DirID);')),
-          'VIRT_FROM_DIRS': 'delete from Dirs where DirID = ? and isVirtual > 0;',
+          'VIRT_FROM_DIRS': 'delete from Dirs where DirID = ? and FolderType > 0;',
           'FROM_VIRT_DIRS': 'delete from VirtDirs where ParentID = ? and DirID = ?;',
           'VIRT_DIR_ID': 'delete from VirtDirs where DirID = ?;'
           }

@@ -1157,7 +1157,7 @@ class FilesCrt():
     def _get_dirs(self):
         """
         Returns directory tree
-        :return: list of tuples (Dir name, DirID, ParentID, isVirtual, Full path of dir)
+        :return: list of tuples (Dir name, DirID, ParentID, FolderType, Full path of dir)
         """
         dirs = []
         dir_tree = self._dbu.dir_tree_select(dir_id=0, level=0)

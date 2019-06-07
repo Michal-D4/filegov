@@ -49,7 +49,7 @@ TagID INTEGER NOT NULL
 DirID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 Path TEXT,
 ParentID INTEGER,
-isVirtual INTEGER,
+FolderType INTEGER,
 FOREIGN KEY(ParentID) REFERENCES Dirs(DirID) ON DELETE CASCADE
 );''',
 
@@ -110,7 +110,7 @@ def initiate_db(connection):
     cursor = connection.cursor()
     try:
         cursor.execute('insert into Dirs (DirID) values (0);')
-        cursor.execute(' '.join(('insert into Dirs (Path, ParentID, isVirtual)',
+        cursor.execute(' '.join(('insert into Dirs (Path, ParentID, FolderType)',
                                  ' values ("Favorites", 0, 1);')))
     except sqlite3.Error as err:
         print("An error occurred:", err.args[0])

@@ -13,7 +13,7 @@ CHANGE_PARENT_ID = '''update Dirs set ParentID = :newId
 
 FIND_FILE = 'select * from Files where DirID = :dir_id and FileName = :file;'
 
-INSERT_DIR = 'insert into Dirs (Path, ParentID, isVirtual) values (:path, :id, 0);'
+INSERT_DIR = 'insert into Dirs (Path, ParentID, FolderType) values (:path, :id, 0);'
 
 INSERT_FILE = 'insert into Files (DirID, FileName, ExtID) values (:dir_id, :file, :ext_id);'
 

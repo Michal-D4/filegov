@@ -3,9 +3,9 @@
 from PyQt5.QtCore import Qt, QModelIndex
 from PyQt5.QtWidgets import QDialog
 
-from .table_model import TableModel
-from .helper import Fields
-from .ui_set_fields import Ui_SelectorFields
+from table_model import TableModel
+from helper import Fields
+from ui_set_fields import Ui_SelectorFields
 
 
 class SetFields(QDialog):

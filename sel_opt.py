@@ -6,8 +6,8 @@ from typing import Union
 from PyQt5.QtCore import Qt, QSettings
 from PyQt5.QtWidgets import QDialog
 
-from .helper import EXT_ID_INCREMENT, DropCopyFile
-from .ui_sel_opt import Ui_SelOpt
+from helper import EXT_ID_INCREMENT, DropCopyFile
+from ui_sel_opt import Ui_SelOpt
 
 
 class SelOpt(QDialog):
@@ -183,7 +183,7 @@ class SelOpt(QDialog):
 
         return ''
 
-    def _get_authors_id(self) - str:
+    def _get_authors_id(self) -> str:
         if self.ui.chAuthor.isChecked():
             auth_ids = self._get_items_id(self.ctrl.ui.authorsList)
             file_ids = self.ctrl.get_db_utils().select_other2('FILE_IDS_AUTHORS',

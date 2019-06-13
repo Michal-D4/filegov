@@ -1,6 +1,7 @@
 # sel_opt.py
 
 from collections import namedtuple
+from typing import Union
 
 from PyQt5.QtCore import Qt, QSettings
 from PyQt5.QtWidgets import QDialog
@@ -125,7 +126,8 @@ class SelOpt(QDialog):
                                                 res.date.file_date)))
         return res
 
-    def _get_dir_ids(self):
+    def _get_dir_ids(self) -> str:
+        ''' returns list of selected IDs as string separated by coma '''
         if self.ui.chDirs.isChecked():
             lvl = 0
             idx = self.ctrl.ui.dirTree.currentIndex()
@@ -134,9 +136,10 @@ class SelOpt(QDialog):
             ids = ','.join([str(id_[0]) for id_ in
                             self.ctrl.get_db_utils().dir_ids_select(root_id, lvl)])
             return ids
-        return None
+        return ''
 
-    def _get_ext_ids( self ):
+    def _get_ext_ids( self ) -> str:
+        ''' returns list of selected IDs as string separated by coma '''
         if self.ui.chExt.isChecked():
             sel_idx = self.ctrl.ui.extList.selectedIndexes()
             model = self.ctrl.ui.extList.model()
@@ -153,9 +156,9 @@ class SelOpt(QDialog):
 
             idx.sort()
             return ','.join([str(id_) for id_ in idx])
-        return None
+        return ''
 
-    def _ext_in_group(self, gr_id):
+    def _ext_in_group(self, gr_id) -> list:
         curr = self.ctrl.get_db_utils().select_other('EXT_ID_IN_GROUP', (gr_id,))
         idx = []
         for id_ in curr:
@@ -163,7 +166,7 @@ class SelOpt(QDialog):
 
         return idx
 
-    def _get_tags_id(self):
+    def _get_tags_id(self) -> str:
         if self.ui.chTags.isChecked():
             tags = self._get_items_id(self.ctrl.ui.tagsList)
             if tags:
@@ -178,16 +181,16 @@ class SelOpt(QDialog):
 
             return ''
 
-        return None
+        return ''
 
-    def _get_authors_id(self):
+    def _get_authors_id(self) - str:
         if self.ui.chAuthor.isChecked():
             auth_ids = self._get_items_id(self.ctrl.ui.authorsList)
             file_ids = self.ctrl.get_db_utils().select_other2('FILE_IDS_AUTHORS',
                                                               (auth_ids,)).fetchall()
             return ','.join(str(ix[0]) for ix in file_ids)
 
-        return None
+        return ''
 
     @staticmethod
     def _get_items_id(view):

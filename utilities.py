@@ -3,7 +3,7 @@
 import sqlite3
 import datetime
 
-from .helper import EXT_ID_INCREMENT, Shared
+from helper import EXT_ID_INCREMENT, Shared
 
 
 Selects = {'TREE':  # (Dir name, DirID, ParentID, Full path of dir)
@@ -187,16 +187,16 @@ class DBUtils:
         res_sql = [Selects['ADV_SELECT'][5]]
 
         if param.dir.use:  # select files by directory tree
-            res_sql.extend([w_join, Selects['ADV_SELECT'][0].format(param.dir.list)])
+            res_sql.extend([w_join, Selects['ADV_SELECT'][0].format(param.dir.id_list)])
             w_join = 'and'
 
-        if param.extension.use and param.extension.list:  # by extension
-            res_sql.extend([w_join, Selects['ADV_SELECT'][1].format(param.extension.list)])
+        if param.extension.use and param.extension.id_list:  # by extension
+            res_sql.extend([w_join, Selects['ADV_SELECT'][1].format(param.extension.id_list)])
             w_join = 'and'
 
         if param.tags.use and param.authors.use:  # by tags and authors
-            t1 = set(param.tags.list.split(','))
-            t2 = set(param.authors.list.split(','))
+            t1 = set(param.tags.id_list.split(','))
+            t2 = set(param.authors.id_list.split(','))
             tmp = t1.intersection(t2)
             if tmp:
                 res_sql.extend([w_join, Selects['ADV_SELECT'][2].format(','.join(tmp))])
@@ -205,15 +205,15 @@ class DBUtils:
                 return ''
 
         elif param.tags.use:  # tags, authors not used
-            if param.tags.list:
-                res_sql.extend([w_join, Selects['ADV_SELECT'][2].format(param.tags.list)])
+            if param.tags.id_list:
+                res_sql.extend([w_join, Selects['ADV_SELECT'][2].format(param.tags.id_list)])
                 w_join = 'and'
             else:
                 return ''
 
         elif param.authors.use:  # authors, tags not used
-            if param.authors.list:
-                res_sql.extend([w_join, Selects['ADV_SELECT'][2].format(param.authors.list)])
+            if param.authors.id_list:
+                res_sql.extend([w_join, Selects['ADV_SELECT'][2].format(param.authors.id_list)])
                 w_join = 'and'
             else:
                 return ''

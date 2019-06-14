@@ -3,7 +3,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog
 
-from .ui_input_date import Ui_DateInputDialog
+from ui_input_date import Ui_DateInputDialog
 
 
 class DateInputDialog(QDialog):

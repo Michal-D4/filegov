@@ -6,7 +6,7 @@ from typing import Union
 from PyQt5.QtCore import Qt, QSettings
 from PyQt5.QtWidgets import QDialog
 
-from helper import EXT_ID_INCREMENT, DropCopyFile
+from helper import EXT_ID_INCREMENT
 from ui_sel_opt import Ui_SelOpt
 
 
@@ -96,10 +96,10 @@ class SelOpt(QDialog):
 
     def get_result(self):
         result = namedtuple('result', 'dir extension tags authors date')
-        dir_ = namedtuple('dir', 'use list')
-        extension = namedtuple('extension', 'use list')
-        tags = namedtuple('tags', 'use match_all list')
-        authors = namedtuple('authors', 'use list')
+        dir_ = namedtuple('dir', 'use id_list')
+        extension = namedtuple('extension', 'use id_list')
+        tags = namedtuple('tags', 'use match_all id_list')
+        authors = namedtuple('authors', 'use id_list')
         doc_date = namedtuple('not_older', 'use date file_date')
 
         dir_ids = self._get_dir_ids()
@@ -107,14 +107,14 @@ class SelOpt(QDialog):
         tag_ids = self._get_tags_id()
         author_ids = self._get_authors_id()
 
-        res = result(dir=dir_(use=self.ui.chDirs.isChecked(), list=dir_ids),
+        res = result(dir=dir_(use=self.ui.chDirs.isChecked(), id_list=dir_ids),
                      extension=extension(use=self.ui.chExt.isChecked(),
-                                         list=ext_ids),
+                                         id_list=ext_ids),
                      tags=tags(use=self.ui.chTags.isChecked(),
-                               list=tag_ids,
+                               id_list=tag_ids,
                                match_all=self.ui.tagAll.isChecked()),
                      authors=authors(use=self.ui.chAuthor.isChecked(),
-                                     list=author_ids),
+                                     id_list=author_ids),
                      date=doc_date(use=self.ui.chDate.isChecked(),
                                    date=self.ui.eDate.text(),
                                    file_date=self.ui.dateFile.isChecked()))
@@ -201,4 +201,21 @@ class SelOpt(QDialog):
             aux.append(model.data(id_, Qt.UserRole))
         aux.sort()
         return ','.join([str(id_) for id_ in aux])
+
+if __name__ == "__main__":
+    import sys
+    from PyQt5.QtWidgets import QApplication
+    from gov_files import FilesCrt
+
+    app = QApplication(sys.argv)
+
+    _controller = FilesCrt()
+
+    set_opt = SelOpt(_controller)
+
+    if set_opt.exec_():
+        print(set_opt.get_result())
+    sys.exit(0)
+
+    sys.exit(app.exec_())
 

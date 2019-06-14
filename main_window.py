@@ -4,8 +4,8 @@ from PyQt5.QtCore import (pyqtSignal, QSettings, QVariant, QSize, Qt, QUrl, QEve
 from PyQt5.QtGui import QResizeEvent, QDrag, QPixmap, QDropEvent, QDragMoveEvent
 from PyQt5.QtWidgets import QMainWindow, QMenu
 
-from .ui_main_window import Ui_MainWindow
-from .helper import (real_folder, virtual_folder, file_real,
+from ui_main_window import Ui_MainWindow
+from helper import (real_folder, virtual_folder, file_real,
                      file_virtual, MimeTypes, DropNoAction,
                      DropCopyFolder, DropMoveFolder,
                      DropCopyFile, Shared)

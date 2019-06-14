@@ -12,18 +12,18 @@ from PyQt5.QtCore import (Qt, QModelIndex, QItemSelectionModel, QSettings, QDate
 from PyQt5.QtWidgets import (QInputDialog, QLineEdit, QFileDialog, QLabel,
                              QFontDialog, QApplication, QMessageBox)
 
-from .table_model import TableModel, ProxyModel2
-from .tree_model import TreeModel
-from .edit_tree_model import EditTreeModel, EditTreeItem
-from .file_info import FileInfo, LoadFiles
-from .helper import (EXT_ID_INCREMENT, Fields, Shared, show_message)
-from .utilities import DBUtils
-from .create_db import create_all_objects
-from .load_db_data import LoadDBData
-from .input_date import DateInputDialog
-from .item_edit import ItemEdit
-from .sel_opt import SelOpt
-from .set_fields import SetFields
+from table_model import TableModel, ProxyModel2
+from tree_model import TreeModel
+from edit_tree_model import EditTreeModel, EditTreeItem
+from file_info import FileInfo, LoadFiles
+from helper import (EXT_ID_INCREMENT, Fields, Shared, show_message)
+from utilities import DBUtils
+from create_db import create_all_objects
+from load_db_data import LoadDBData
+from input_date import DateInputDialog
+from item_edit import ItemEdit
+from sel_opt import SelOpt
+from set_fields import SetFields
 
 
 DETECT_TYPES = sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES

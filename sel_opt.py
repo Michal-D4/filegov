@@ -11,6 +11,7 @@ from ui_sel_opt import Ui_SelOpt
 
 
 class SelOpt(QDialog):
+    # todo instead of controller use the dict/map of list choosen items in all widgets
     def __init__(self, controller, parent=None):
         super(SelOpt, self).__init__(parent)
         self.ui = Ui_SelOpt()
@@ -50,9 +51,10 @@ class SelOpt(QDialog):
         self.ui.eDate.setEnabled(rest[5][0])
         self.ui.dateFile.setChecked(rest[5][2])
 
-    def author_toggle(self):
+    def author_toggle(self, author_list):
         if self.ui.chAuthor.isChecked():
-            self.ui.eAuthors.setText(self.ctrl.get_selected_items(self.ctrl.ui.authorsList))
+            self.ui.eAuthors.setText(author_list)  # todo the same in the similar ethods
+            # author_list = self.ctrl.get_selected_items(self.ctrl.ui.authorsList))
         else:
             self.ui.eAuthors.setText('')
 
@@ -215,7 +217,7 @@ if __name__ == "__main__":
 
     if set_opt.exec_():
         print(set_opt.get_result())
-    sys.exit(0)
-
     sys.exit(app.exec_())
+
+    # sys.exit(app.exec_())
 

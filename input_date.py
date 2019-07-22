@@ -25,12 +25,12 @@ if __name__ == "__main__":
     import sys
     from PyQt5.QtWidgets import QApplication
     from PyQt5.QtCore import QDate
-
+    breakpoint()
     app = QApplication(sys.argv)
 
     date, ok = DateInputDialog.getDate(QDate.currentDate())
     print("{} {}".format(date, ok))
-    if ok:
-        app.exit()
-    app.exec_()
+    # if ok:
+    #     app.exit()
+    sys.exit(app.exec_())
 

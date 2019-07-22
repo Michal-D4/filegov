@@ -98,9 +98,21 @@ class AppWindow(QMainWindow):
         return DropNoAction
 
     def _ask_action_file(self, pos):
+        """
+        Menu: drag-drop action chooser
+        when drop file(s) to directory tree item(folder)
+        Actions: Copy | Move | Cancel
+        Returns: int (DropCopyFile=4, DropMoveFile=8, DropNoAction=0)
+        """
         return self._ask_action_folder(pos) * 4
 
     def _ask_action_folder(self, pos):
+        """
+        Menu: drag-drop action chooser
+        when drop folder(s) to directory tree item(folder)
+        Actions: Copy | Move | Cancel
+        Returns: int (DropCopyFolder=1, DropMoveFolder=2, DropNoAction=0)
+        """
         menu = QMenu(self)
         menu.addAction('Copy')
         menu.addAction('Move')

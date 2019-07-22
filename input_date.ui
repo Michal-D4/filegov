@@ -50,6 +50,22 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="locale">
+    <locale language="English" country="UnitedKingdom"/>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhDate|Qt::ImhPreferNumbers</set>
+   </property>
+   <property name="timeSpec">
+    <enum>Qt::TimeZone</enum>
+   </property>
+   <property name="date">
+    <date>
+     <year>2019</year>
+     <month>6</month>
+     <day>14</day>
+    </date>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
